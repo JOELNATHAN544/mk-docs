@@ -1,11 +1,11 @@
 # Project information
 site_name: My MkDocs Project
 site_description: 'An example MkDocs project using the Material theme'
-site_url: 'https://JOELNATHAN544.github.io/mk-docs'  # Change this to your site's URL
+site_url: 'https://adorsys-gis.github.io/mk-docs'  # Change this to your site's URL
 
 # Theme settings
 theme:
-  name: material
+  name: mkdocs
 
 # Navbar settings (site structure)
 nav:
@@ -20,6 +20,6 @@ markdown_extensions:
       permalink: true
 
 # Repository configuration (for the edit link on pages)
-repo_name: JOELNATHAN544/mk-docs
-repo_url: https://github.com/JOELNATHAN544/mk-docs
+repo_name: ADORSYS-GIS/mk-docs
+repo_url: https://github.com/ADORSYS-GIS/mk-docs
 edit_uri: edit/main/docs/
