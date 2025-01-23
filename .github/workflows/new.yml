@@ -1,29 +1,30 @@
-on:
-  push:
-    branches:
-      - master
-jobs:
-  build:
-    runs-on: ubuntu-22.04
-    permissions:
-      packages: write
+  on:
+     push:
+       branches:
+       - master
 
-    steps:
-    #checkout the repository code
-    - name: Checkout code
-      uses: actions/checkout@v3
+  jobs:
+    build:
+       runs-on: ubuntu-22.04
+       permissions:
+         packages: write
 
-    - name: Login to container registory
-      uses: docker/login-action@v2
-      with:
-        registory: gchr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKENN }}
+       steps:
+         # Checkout the repository code
+         - name: Checkout code
+           uses: actions/checkout@v3
 
-    - name: Build project
-      uses: docker/build-push-action@v4
-      with:
-        tag:
-          ghcr.io/${{ github.repositrory }}:latest
-          ghcr.io/${{ github.repository }}:${{ github.run_number }}
+         - name: Login to Container Registry
+           uses: docker/login-action@v2
+           with: 
+             registry: ghcr.io
+             username: ${{ github.actor }}
+             password: ${{ secrets.GITHUB_TOKEN }}
+
+         - name: Build Project
+           uses: docker/build-push-action@v4
+           with:
+             tag: |
+               ghcr.io/${{ github.repository }}:latest
+               ghcr.io/${{ github.repository }}:${{ github.run_number }}
 
