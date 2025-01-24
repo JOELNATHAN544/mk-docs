@@ -1,6 +1,6 @@
   name: joelnathan544
   on:
-     push:
+    push:
        branches:
        - master
 
